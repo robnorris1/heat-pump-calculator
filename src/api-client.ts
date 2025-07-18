@@ -15,8 +15,6 @@ export class RealWeatherApiClient implements WeatherApiClient {
                 }
             });
 
-            //418, im a teapot XD
-
             if (response.status === 404) {
                 console.log(`Weather data not found for location: ${location}`);
                 return null;
@@ -27,18 +25,6 @@ export class RealWeatherApiClient implements WeatherApiClient {
             }
 
             const data = await response.json();
-
-            //Response from postman:
-            // {
-            //     "location": {
-            //     "location": "Thames Valley (Heathrow)",
-            //         "degreeDays": "2033",
-            //         "groundTemp": "11.3",
-            //         "postcode": "TW6",
-            //         "lat": "51.470022",
-            //         "lng": "-0.454296"
-            // }
-            // }
 
             return {
                 location: data.location.location,

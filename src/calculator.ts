@@ -13,7 +13,6 @@ export class HeatPumpCalculator {
         const heatLoss = calculateHeatLoss(house);
         const weather = await this.api.getWeatherData(house.designRegion);
 
-        // NOTE: come back to this, its pretty ugly but i think it will work
         const lines = [
             '--------------------------------------',
             house.submissionId,

@@ -18,11 +18,7 @@ async function loadData() {
 async function main() {
     const { houses, pumps } = await loadData();
     const apiClient = new RealWeatherApiClient();
-    console.log('**********************', apiClient)
     const calculator = new HeatPumpCalculator(apiClient, pumps);
-
-    console.log('Running heat pump calc');
-
     const result = await calculator.processHouses(houses);
     console.log(result);
 }
