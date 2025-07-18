@@ -44,6 +44,25 @@ npm run dev
 npm test
 ```
 
+## Project Structure
+
+```
+src/
+├── types.ts          # TypeScript interfaces
+├── utils.ts          # Business logic
+├── api-client.ts     # Weather API integration
+├── calculator.ts     # Main heat pump calculator
+└── index.ts          # Entry point
+
+tests/
+└── utils.test.ts     # Unit tests for business logic
+
+data/
+├── houses.json       # Property data
+└── heatPumpData.json # Heat pump specifications
+```
+
+
 ## API Integration
 
 The weather API is intentionally unstable (as mentioned in the requirements) and may return various HTTP status codes:
