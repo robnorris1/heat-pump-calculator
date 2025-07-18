@@ -10,7 +10,7 @@ export class RealWeatherApiClient implements WeatherApiClient {
 
             const response = await fetch(url, {
                 headers: {
-                    'x-api-ky': this.apiKey,
+                    'x-api-key': this.apiKey,
                     'Content-Type': 'application/json'
                 }
             });
