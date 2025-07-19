@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { HeatPumpCalculator } from './calculator';
-import { RealWeatherApiClient } from './api-client';
+import { WeatherApiClientImp } from './api-client';
 import { House, HeatPump } from './types';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -17,7 +17,7 @@ async function loadData() {
 
 async function main() {
     const { houses, pumps } = await loadData();
-    const apiClient = new RealWeatherApiClient();
+    const apiClient = new WeatherApiClientImp();
     const calculator = new HeatPumpCalculator(apiClient, pumps);
     const result = await calculator.processHouses(houses);
     console.log(result);

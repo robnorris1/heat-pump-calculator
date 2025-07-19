@@ -54,6 +54,9 @@ describe('Heat Pump Calculator Utils', () => {
             const degreeDays = 2400;
             expect(calculatePowerHeatLoss(heatLoss, degreeDays)).toBe(4);
         });
+        it('should handle zero degree days', () => {
+            expect(calculatePowerHeatLoss(1000, 0)).toBe(0);
+        });
     });
 
     describe('findSuitableHeatPump', () => {

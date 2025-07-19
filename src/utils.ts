@@ -1,10 +1,13 @@
 import { House, HeatPump } from './types';
 
+const VAT_RATE = 0.05;
+
 export function calculateHeatLoss(house: House): number {
     return house.floorArea * house.heatingFactor * house.insulationFactor;
 }
 
 export function calculatePowerHeatLoss(heatLoss: number, degreeDays: number): number {
+    if (degreeDays === 0) return 0;
     return heatLoss / degreeDays;
 }
 
@@ -16,7 +19,7 @@ export function findSuitableHeatPump(pumps: HeatPump[], powerHeatLoss: number): 
 
 export function calculateCosts(pump: HeatPump) {
     const subtotal = pump.costs.reduce((sum, item) => sum + item.cost, 0);
-    const vat = subtotal * 0.05; // 5% VAT
+    const vat = subtotal * VAT_RATE;
     const total = subtotal + vat;
 
     return {

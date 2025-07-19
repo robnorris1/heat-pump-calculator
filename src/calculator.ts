@@ -1,8 +1,8 @@
-import { House, HeatPump, WeatherApiClient } from './types';
+import { House, HeatPump, IWeatherApiClient } from './types';
 import { calculateHeatLoss, calculatePowerHeatLoss, findSuitableHeatPump, calculateCosts } from './utils';
 
 export class HeatPumpCalculator {
-    constructor(private api: WeatherApiClient, private pumps: HeatPump[]) {}
+    constructor(private api: IWeatherApiClient, private pumps: HeatPump[]) {}
 
     async processHouses(houses: House[]): Promise<string> {
         const results = await Promise.all(houses.map(house => this.processHouse(house)));

@@ -27,6 +27,6 @@ export interface HeatPump {
     costs: CostItem[];
 }
 
-export interface WeatherApiClient {
+export interface IWeatherApiClient {
     getWeatherData(location: string): Promise<WeatherData | null>;
 }

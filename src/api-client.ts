@@ -1,6 +1,6 @@
-import { WeatherData, WeatherApiClient } from './types';
+import { WeatherData, IWeatherApiClient } from './types';
 
-export class RealWeatherApiClient implements WeatherApiClient {
+export class WeatherApiClientImp implements IWeatherApiClient {
     private readonly baseUrl = process.env.WEATHER_API_BASE_URL!;
     private readonly apiKey = process.env.WEATHER_API_KEY!;
 
